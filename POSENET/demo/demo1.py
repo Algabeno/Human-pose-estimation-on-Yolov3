@@ -100,6 +100,13 @@ def posenet(img, bboxlist, root_list,num):
 
     # visualize 2d poses
     vis_img = original_img.copy()
+    for n in range(person_num):
+        vis_kps = np.zeros((3, joint_num))
+
+        vis_kps[0, :] = output_pose_2d_list[n][:, 0]
+        vis_kps[1, :] = output_pose_2d_list[n][:, 1]
+        vis_kps[2, :] = 1
+        vis_img = vis_keypoints(vis_img, vis_kps, skeleton)
     cv2.imshow('img', vis_img)
     cv2.waitKey(1)
     return img
