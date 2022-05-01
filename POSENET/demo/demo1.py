@@ -73,7 +73,7 @@ def posenet(img, bboxlist, root_list,num):
     person_num = len(bbox_list)
     # normalized camera intrinsics
     focal = [1500, 1500]  # x-axis, y-axis
-
+    princpt = [original_img_width / 2, original_img_height / 2]  # x-axis, y-axis
     # for each cropped and resized human image, forward it to PoseNet
     output_pose_2d_list = []
     output_pose_3d_list = []
